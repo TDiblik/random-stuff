@@ -1,0 +1,1 @@
+alias git-submodules-update="git submodule update --init --recursive --remote --merge"

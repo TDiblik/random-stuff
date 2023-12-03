@@ -1,0 +1,5 @@
+# Clean RAM every morning
+0 8 * * * root /bin/bash -c "/bin/sync; echo 3 > /proc/sys/vm/drop_caches && /bin/sync;"
+
+# Check for renewal of all domains
+30 3 * * * root /bin/bash -c "/bin/certbot renew --agree-tos >> /var/log/letsencrypt/renew.log"
