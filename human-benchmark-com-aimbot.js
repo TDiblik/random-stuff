@@ -1,3 +1,5 @@
+// Video about this script (CZ only): https://youtu.be/4fPkDXdVENk
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
