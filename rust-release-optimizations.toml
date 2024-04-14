@@ -1,0 +1,8 @@
+# I like to include this release profile in my rust projects, because it ensures that most optimizations for speed are hit,
+# while beeing compatible with older CPUs (settings prefer runtime speed over compile time / binary size).
+[profile.release]
+opt-level = 3
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
