@@ -5,3 +5,5 @@ This was originally supposed to be a Microsoft To Do app, however I didn't have 
 I'm putting it here cuz I feel like it could be a really nice 'template' for anybody who wants to use Graph API with Rust/Tauri.
 
 If you ever want to start it up, the "credentials" (which should be public, so no security issue there xd) inside the `./src-tauri/src/config.rs` are already invalidated, so you'll need to create your own (the Azure AD setttings are screenshoted inside the `./readme` folder).
+
+Oh, and btw, this has been written loooong before `Microsoft Entra` was even announced, however the `Azure AD steps` should be the same... (tldr; it's just a different name [not really, but in this case it doesn't really matter])
