@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+  web:
+    image: moodlehq/moodle-php-apache:7.4-buster
+    ports:
+      - 8080:80
+    volumes:
+      - ./moodle:/var/www/html
+      - ./moodle-data:/var/www/moodledata
+  db:
+    image: moodlehq/moodle-db-mssql
+    ports:
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong(!)Password
