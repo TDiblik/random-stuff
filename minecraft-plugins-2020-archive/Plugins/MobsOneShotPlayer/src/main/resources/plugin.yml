@@ -1,0 +1,6 @@
+name: MobsOneShotPlayer
+version: ${project.version}
+main: me.ezeners.mobsoneshotplayer.Main
+api-version: 1.16
+authors: [ Ezeners ]
+description: In this pluggin every hostile mob oneshots us

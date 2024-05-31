@@ -1,0 +1,6 @@
+name: ElytraUnbreakable
+version: ${project.version}
+main: me.ezeners.elytraunbreakable.Main
+api-version: 1.16
+authors: [ Ezeners ]
+description: In this plugin, every elytra is unbreakable

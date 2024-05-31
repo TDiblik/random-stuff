@@ -1,0 +1,6 @@
+name: SpidermanPlugin
+version: ${project.version}
+main: me.ezeners.spidermanplugin.Main
+api-version: 1.16
+authors: [ Ezeners ]
+description: In this mode you can be a fucking spiderman

@@ -1,0 +1,6 @@
+name: BreakBlockTeleport
+version: ${project.version}
+main: me.ezeners.breakblockteleport.Main
+api-version: 1.16
+authors: [ Ezeners ]
+description: In this plugin you break block and get randomlly teleported near you

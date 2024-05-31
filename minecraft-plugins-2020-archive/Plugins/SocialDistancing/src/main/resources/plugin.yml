@@ -1,0 +1,6 @@
+name: SocialDistancing
+version: ${project.version}
+main: me.ezeners.socialdistancing.Main
+api-version: 1.16
+authors: [ Ezeners ]
+description: In this mode if you come closer than 2 blocks to another player you get hitted

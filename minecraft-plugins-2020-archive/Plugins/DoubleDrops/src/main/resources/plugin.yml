@@ -1,0 +1,6 @@
+name: Doubledrops
+version: ${project.version}
+main: me.ezeners.doubledrops.Main
+api-version: 1.16
+authors: [ Ezeners ]
+description: Diamons ores drop 2 diamonds
