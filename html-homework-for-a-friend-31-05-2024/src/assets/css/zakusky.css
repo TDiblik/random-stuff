@@ -1,0 +1,30 @@
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: var(--img-row-gap);
+}
+
+.showcase-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showcase-item > img {
+  margin-top: 2%;
+  height: 300px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.showcase-text {
+  width: 100%;
+  margin-top: 15px;
+  background-color: var(--secondary);
+  text-align: center;
+  border-radius: var(--border-radius);
+  font-size: var(--mid-text-font-size);
+}
