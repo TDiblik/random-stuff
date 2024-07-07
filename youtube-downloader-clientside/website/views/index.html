@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download MP4 Video</title>
+  </head>
+  <body>
+    <h1>Download MP4 Video</h1>
+    <button id="downloadButton">Download Video</button>
+    <script>
+      async function downloadVideoWithProgress(url, progressCallback) {
+        const init = {
+          method: "POST",
+          mode: "cors",
+          cache: "default",
+          body: JSON.stringify({
+            hidden_parameter_for_the_token_to_fuck_with_bots: "insert_signed_jwt",
+          }),
+        };
+        const response = await fetch(url, init);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const contentLength = response.headers.get("content-length");
+        if (!contentLength) {
+          throw new Error("Content-Length response header unavailable");
+        }
+
+        const total = parseInt(contentLength, 10);
+        let loaded = 0;
+
+        console.log(response);
+
+        const reader = response.body.getReader();
+        const stream = new ReadableStream({
+          start(controller) {
+            function push() {
+              reader
+                .read()
+                .then(({ done, value }) => {
+                  if (done) {
+                    controller.close();
+                    return;
+                  }
+                  loaded += value.length;
+                  progressCallback(loaded / total);
+                  controller.enqueue(value);
+                  push();
+                })
+                .catch((error) => {
+                  console.error("Stream reading error:", error);
+                  controller.error(error);
+                });
+            }
+            push();
+          },
+        });
+
+        const responseStream = new Response(stream);
+        const videoBlob = await responseStream.blob();
+        return videoBlob;
+      }
+      document.getElementById("downloadButton").addEventListener("click", async () => {
+        try {
+          // proxied url
+          const videoUrl = "http://127.0.0.1:54519/?hidden_parameter_for_the_format_index_to_fuck_with_bots=5";
+          downloadVideoWithProgress(videoUrl, (progress) => {
+            console.log(`Progress: ${(progress * 100).toFixed(2)}%`);
+          })
+            .then((videoBlob) => {
+              const videoObjectUrl = URL.createObjectURL(videoBlob);
+
+              const link = document.createElement("a");
+              link.href = videoObjectUrl;
+              link.download = "downloaded_video.mp4";
+
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            })
+            .catch((error) => {
+              console.error("Download failed:", error);
+            });
+
+          // Create a URL for the video blob
+        } catch (error) {
+          console.error("There has been a problem with your fetch operation:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
